@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rm -rf dist/ &&  npm run build:esm && npm run build:cjs ",
+    "build": "rm -rf dist/ &&  yarn run build:esm && yarn run build:cjs ",
     "build:esm": "tsc",
     "build:cjs": "tsc --module CommonJS --outDir dist/cjs"
   },
@@ -20,7 +20,7 @@
     "design system",
     "vapormint",
     "mintflick",
-    "typescript componant package"
+    "typescript component package"
   ],
   "author": "maverick",
   "license": "MIT",
@@ -42,7 +42,6 @@
   },
   "peerDependencies": {
     "react": "18.2.0",
-    "next": "13.3.1",
     "react-dom": "18.2.0"
   }
 }

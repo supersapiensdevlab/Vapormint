@@ -13,7 +13,8 @@
     "outDir": "dist/esm",
     "sourceMap": true,
     "strict": true,
-    "target": "ES6"
+    "target": "ES6",
+    "skipLibCheck": true
   },
   "include": ["src"],
   "exclude": ["node_modules"]

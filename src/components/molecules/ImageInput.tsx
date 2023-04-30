@@ -127,6 +127,7 @@ function ImageInput({
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [rotation, setRotation] = useState(0);
   const [zoom, setZoom] = useState(1);
+  // @ts-ignore
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
 
   const hiddenFileInput = useRef<any>(null);
@@ -186,7 +187,8 @@ function ImageInput({
             title={"Crop Image"}
             onClose={() => {
               setcropperOpen(false);
-            }}>
+            }}
+          >
             <div className="flex flex-col items-center justify-start w-full h-full max-w-lg gap-2 p-1 overflow-hidden">
               <div className="relative flex-grow w-full overflow-hidden rounded-lg">
                 <Cropper
@@ -221,7 +223,8 @@ function ImageInput({
                 handleClick={() => setcropperOpen(false)}
                 kind="success"
                 type="solid"
-                size="base">
+                size="base"
+              >
                 Done
               </Button>
             </div>
@@ -240,21 +243,24 @@ function ImageInput({
                 handleClick={handleClick}
                 kind="warning"
                 type="ghost"
-                size="small">
+                size="small"
+              >
                 Choose another photo
               </Button>
             )
           ) : (
             <div
               onClick={handleClick}
-              className="flex items-center w-full gap-2 text-base font-semibold capitalize text-vapormintWhite-100">
+              className="flex items-center w-full gap-2 text-base font-semibold capitalize text-vapormintWhite-100"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-6 h-6 ">
+                className="w-6 h-6 "
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"

@@ -1,3 +1,27 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,10 +31,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import React, { useCallback, useRef, useState } from "react";
-import Cropper from "react-easy-crop";
-import FullScreenOverlay from "./FullScreenOverlay";
-import Button from "./Button";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = __importStar(require("react"));
+const react_easy_crop_1 = __importDefault(require("react-easy-crop"));
+const FullScreenOverlay_1 = __importDefault(require("./FullScreenOverlay"));
+const Button_1 = __importDefault(require("./Button"));
 function sanitizeFilename(file) {
     const newFilename = file.name.replace(/[^a-zA-Z0-9\.]/g, "_");
     const renamedFile = new File([file], newFilename, { type: file.type });
@@ -80,16 +108,16 @@ function getCroppedImg(imageSrc, pixelCrop, rotation = 0, compression, flip = { 
 }
 function ImageInput({ image, setImage, label, aspect, cropShape, showGrid, compression, }) {
     var _a;
-    const [crop, setCrop] = useState({ x: 0, y: 0 });
-    const [rotation, setRotation] = useState(0);
-    const [zoom, setZoom] = useState(1);
+    const [crop, setCrop] = (0, react_1.useState)({ x: 0, y: 0 });
+    const [rotation, setRotation] = (0, react_1.useState)(0);
+    const [zoom, setZoom] = (0, react_1.useState)(1);
     // @ts-ignore
-    const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
-    const hiddenFileInput = useRef(null);
-    const [cropperOpen, setcropperOpen] = useState(false);
-    const [selectedFile, setselectedFile] = useState(null);
-    const [imageUrl, setimageUrl] = useState("");
-    const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => __awaiter(this, void 0, void 0, function* () {
+    const [croppedAreaPixels, setCroppedAreaPixels] = (0, react_1.useState)(null);
+    const hiddenFileInput = (0, react_1.useRef)(null);
+    const [cropperOpen, setcropperOpen] = (0, react_1.useState)(false);
+    const [selectedFile, setselectedFile] = (0, react_1.useState)(null);
+    const [imageUrl, setimageUrl] = (0, react_1.useState)("");
+    const onCropComplete = (0, react_1.useCallback)((croppedArea, croppedAreaPixels) => __awaiter(this, void 0, void 0, function* () {
         try {
             const croppedImage = yield getCroppedImg(selectedFile === null || selectedFile === void 0 ? void 0 : selectedFile.localurl, croppedAreaPixels, rotation, compression);
             console.log("donee", { croppedImage });
@@ -123,12 +151,12 @@ function ImageInput({ image, setImage, label, aspect, cropShape, showGrid, compr
     };
     return (<>
       <div className="flex flex-col items-center w-full gap-2 p-1 border-2 border-dashed rounded-lg border-vapormintBlack-200 text-brand4">
-        {(selectedFile === null || selectedFile === void 0 ? void 0 : selectedFile.localurl) && cropperOpen && (<FullScreenOverlay title={"Crop Image"} onClose={() => {
+        {(selectedFile === null || selectedFile === void 0 ? void 0 : selectedFile.localurl) && cropperOpen && (<FullScreenOverlay_1.default title={"Crop Image"} onClose={() => {
                 setcropperOpen(false);
             }}>
             <div className="flex flex-col items-center justify-start w-full h-full max-w-lg gap-2 p-1 overflow-hidden">
               <div className="relative flex-grow w-full overflow-hidden rounded-lg">
-                <Cropper image={selectedFile === null || selectedFile === void 0 ? void 0 : selectedFile.localurl} crop={crop} rotation={rotation} zoom={zoom} aspect={aspect} cropShape={cropShape} showGrid={showGrid} onCropChange={setCrop} onRotationChange={setRotation} onCropComplete={onCropComplete} onZoomChange={setZoom} style={{
+                <react_easy_crop_1.default image={selectedFile === null || selectedFile === void 0 ? void 0 : selectedFile.localurl} crop={crop} rotation={rotation} zoom={zoom} aspect={aspect} cropShape={cropShape} showGrid={showGrid} onCropChange={setCrop} onRotationChange={setRotation} onCropComplete={onCropComplete} onZoomChange={setZoom} style={{
                 containerStyle: {
                     height: "100%",
                     width: "100%",
@@ -143,19 +171,19 @@ function ImageInput({ image, setImage, label, aspect, cropShape, showGrid, compr
                 },
             }}/>
               </div>{" "}
-              <Button handleClick={() => setcropperOpen(false)} kind="success" type="solid" size="base">
+              <Button_1.default handleClick={() => setcropperOpen(false)} kind="success" type="solid" size="base">
                 Done
-              </Button>
+              </Button_1.default>
             </div>
-          </FullScreenOverlay>)}
+          </FullScreenOverlay_1.default>)}
         {selectedFile && ((_a = selectedFile.file[0]) === null || _a === void 0 ? void 0 : _a.size) > 2000000 && (<span className="text-base font-semibold tracking-wider text-vapormintError-500 ">
             File size must be less than 2MB.
           </span>)}
         {imageUrl && <img className="w-full max-w-lg rounded" src={imageUrl}/>}
         <label className="flex items-start w-full gap-2 p-2 cursor-pointer ">
-          {selectedFile ? (selectedFile.file && (<Button handleClick={handleClick} kind="warning" type="ghost" size="small">
+          {selectedFile ? (selectedFile.file && (<Button_1.default handleClick={handleClick} kind="warning" type="ghost" size="small">
                 Choose another photo
-              </Button>)) : (<div onClick={handleClick} className="flex items-center w-full gap-2 text-base font-semibold capitalize text-vapormintWhite-100">
+              </Button_1.default>)) : (<div onClick={handleClick} className="flex items-center w-full gap-2 text-base font-semibold capitalize text-vapormintWhite-100">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 ">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
               </svg>
@@ -170,5 +198,5 @@ function ImageInput({ image, setImage, label, aspect, cropShape, showGrid, compr
       </div>
     </>);
 }
-export default ImageInput;
+exports.default = ImageInput;
 //# sourceMappingURL=ImageInput.jsx.map
