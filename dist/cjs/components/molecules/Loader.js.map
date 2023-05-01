@@ -1,0 +1,1 @@
+{"version":3,"file":"Loader.js","sourceRoot":"","sources":["../../../../src/components/molecules/Loader.tsx"],"names":[],"mappings":";;;;;AAAA,kDAA0B;AAM1B,SAAwB,MAAM,CAAC,KAAY;IACzC,OAAO,CACL,uCAAK,SAAS,EAAC,YAAY;QACzB,uCAAK,SAAS,EAAC,+FAA+F;YAC5G,wCACE,KAAK,EAAE,EAAE,KAAK,EAAE,GAAG,KAAK,CAAC,QAAQ,GAAG,EAAE,EACtC,SAAS,EAAE,qFAAqF,GAC1F,CACJ,CACF,CACP,CAAC;AACJ,CAAC;AAXD,yBAWC"}
