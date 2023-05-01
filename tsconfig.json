@@ -3,17 +3,18 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "esModuleInterop": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "lib": ["es5", "es2015", "es2016", "dom", "esnext"],
     "types": ["node"],
-    "module": "ES2015",
+    "module": "ESNext",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "outDir": "dist/esm",
     "sourceMap": true,
     "strict": true,
-    "target": "ES6"
+    "target": "ES6",
+    "skipLibCheck": true
   },
   "include": ["src"],
   "exclude": ["node_modules"]

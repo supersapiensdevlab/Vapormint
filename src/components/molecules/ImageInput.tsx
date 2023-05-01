@@ -127,6 +127,7 @@ function ImageInput({
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [rotation, setRotation] = useState(0);
   const [zoom, setZoom] = useState(1);
+  // @ts-ignore
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
 
   const hiddenFileInput = useRef<any>(null);
