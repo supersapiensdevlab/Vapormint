@@ -1,8 +1,8 @@
 import "react-app-polyfill/ie11";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { ToggleSwitch } from "devvapormint";
-import "devvapormint/dist/tailwind.css";
+import { ToggleSwitch } from "vapormint";
+import "vapormint/dist/tailwind.css";
 
 const App = () => {
   const [isToggled, setIsToggled] = React.useState(false);
